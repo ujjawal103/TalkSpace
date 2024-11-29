@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>All Chats </title>
+    <link rel="stylesheet" href="styleSheets/allChats.css">
+</head>
+<body>
+    <div class="header">
+        <div class="innerHeader">
+            <h1>Talk Space</h1>
+             <a href="/chats/new">Say Someone Something</a>
+        </div>
+        <h3>Open talk, open hearts, open minds</h3>
+    </div>
+    <div class="header fake">
+        <div class="innerHeader">
+            <h1>Talk Space</h1>
+             <a href="/chats/new">Say Someone Something</a>
+        </div>
+        <h3>Open talk, open hearts, open minds</h3>
+    </div>
+    <div id="main">
+    <% for(let chat of chats){ %>
+        <div class="chat">
+            <h5>From : <%= chat.from %></h5>
+            <div class="content">
+                <p><strong>Say's :</strong> <%= chat.msg %></p>
+            </div>
+            <h5>To : <%= chat.to %></h5>
+            <p class="date"><small>At : <%= chat.created_at.toString().split(" ").slice(0,4).join(" ")%></small>  <!-- actually split convert string into array -->
+            <small>: <%= chat.created_at.toString().split(" ")[4]%></small>
+            </p>
+            <div class="buttons">
+                <a href="/chats/<%=chat._id%>/edit">Make Changes</a>
+                <a href="/chats/<%=chat._id%>?_method=DELETE">Report</a>
+            </div>
+        </div>
+        <!-- <hr> -->
+        <br>
+    <% } %>
+    </div>
+</body>
+</html>
+
+
+    

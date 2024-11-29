@@ -1,0 +1,68 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #600568;
+    overflow-x: hidden;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 60vh;
+    /* background-color: aqua; */
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    line-height: 2vh;
+    background-color: rgb(218, 32, 168);
+    padding: 3vw;
+    border-radius: 30px;
+    border: #9e979f 5px solid;
+}
+input{
+    padding: 10px;
+    border: 2px solid #600568;
+    background-color: rgb(198, 214, 220);
+    color: white;
+    border-radius: 20px;
+    color: rgb(22, 212, 32);
+    font-size: larger;
+    cursor: pointer;
+}
+textarea{
+    padding: 5px;
+    background-color: rgb(187, 107, 148);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aquamarine;
+    font-size: 20px;
+    border: 2px solid rgb(124, 21, 208);
+    cursor: pointer;
+    border-radius: 20px;
+    text-wrap: wrap;
+}
+textarea::placeholder{
+    padding: 10px;
+   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aquamarine;
+    font-size: 2vh;
+}
+button{
+    align-self: flex-end;
+    padding: 10px;
+    background-color: rgb(15, 101, 154);
+    color: white;
+}

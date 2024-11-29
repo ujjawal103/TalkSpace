@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styleSheets/new.css">
+    <style>
+        strong{
+            font-style: italic;
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST" action="/chats/<%=chat._id%>?_method=PUT">
+            <label for="from">From :-&nbsp;<strong> <%= chat.from %> </strong></label>
+            <label for="to">To&nbsp;&nbsp;&nbsp;&nbsp; :- &nbsp;<strong style="color: rgb(225, 202, 23);"><%= chat.to %></strong></label>
+            <textarea name="msg" id="msg"rows="8" cols="30"><%=chat.msg%></textarea>
+            <button type="submit">Done</button>
+        </form>
+    </div>
+</body>
+</html>
