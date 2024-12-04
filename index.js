@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+const dotenv = require('dotenv');
+
+//load everything from dot env
+dotenv.config();
+
 let PORT = process.env.PORT || 8080;
 
 const mongoose = require('mongoose');
@@ -23,7 +28,7 @@ main()
 .catch((err)=> console.log(err));
 
 async function main() {
-    await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/whatsapp', {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

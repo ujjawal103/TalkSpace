@@ -2,6 +2,12 @@
 
 const mongoose = require('mongoose');
 
+
+const dotenv = require('dotenv');
+
+//load everything from dot env
+dotenv.config();
+
 const Chat = require("./models/chats.js");
 
 main()
@@ -9,7 +15,7 @@ main()
 .catch((err)=> console.log(err));
 
 async function main() {
-   await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+   await mongoose.connect(process.env.MONGO_URI);
 }
 
 
