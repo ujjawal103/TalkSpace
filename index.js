@@ -85,7 +85,6 @@ app.post("/chats" , (req,res)=>{
         created_at : new Date(),
     })
     newChat.save().catch(err => console.log(err))
-    count+=1;
     res.redirect("/chats");
 })
 
