@@ -29,8 +29,8 @@ main()
 
 async function main() {
     await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
     });
   }
 
@@ -62,12 +62,24 @@ app.get("/" , (req,res) =>{
 })
 
 
-app.get("/chats" , async (req,res) =>{          //as we are working with database so aur functions is asyncs and await.
-    let chats = await Chat.find();             //extracting data from database (also then,catch can be used , but here we use async and await so no need).
+// app.get("/chats" , async (req,res) =>{          //as we are working with database so aur functions is asyncs and await.
+//     let chats = await Chat.find();             //extracting data from database (also then,catch can be used , but here we use async and await so no need).
    
-    res.render("allChats.ejs" , {chats});
+//     res.render("allChats.ejs" , {chats});
     
-});
+// });
+
+
+app.get("/chats", async (req, res) => {
+    try {
+      let chats = await Chat.find();
+      res.render("allChats.ejs", { chats });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error fetching chats");
+    }
+  });
+  
 
 
 
@@ -107,11 +119,22 @@ app.put("/chats/:id",async (req,res)=>{
 
 
 //delete
-app.get("/chats/:id/" , async(req,res)=>{
-    let { id } = req.params;
-    let deleteChat = await Chat.findByIdAndDelete(id );
-    res.redirect("/chats");
-})
+// app.get("/chats/:id/" , async(req,res)=>{
+//     let { id } = req.params;
+//     let deleteChat = await Chat.findByIdAndDelete(id );
+//     res.redirect("/chats");
+// })
+app.get("/chats/:id/", async (req, res) => {
+    try {
+      let { id } = req.params;
+      await Chat.findByIdAndDelete(id);
+      res.redirect("/chats");
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error deleting chat");
+    }
+  });
+  
 
 
 
